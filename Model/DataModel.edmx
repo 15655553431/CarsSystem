@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="DataModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarsInfo" EntityType="DataModel.Store.CarsInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationInfo" EntityType="DataModel.Store.ApplicationInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NewsInfo" EntityType="DataModel.Store.NewsInfo" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Pwd" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="LoginDate" Type="datetime" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="OfficeDate" Type="datetime" Nullable="true" />
+    <Property Name="Department" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Mileage" Type="int" Nullable="true" />
+    <Property Name="Total" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CarsInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LicencePlate" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Seating" Type="int" Nullable="false" />
+    <Property Name="CarModel" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CarColor" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CarBrand" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OilWear" Type="float" Nullable="false" />
+    <Property Name="OilType" Type="int" Nullable="false" />
+    <Property Name="Mileage" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AppUGUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="AppLogin" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AppName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DriverUGUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="DriverLogin" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LeadUGUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="LeadLogin" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LeadName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CGUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="LicencePlate" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Origin" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Distance" Type="int" Nullable="false" />
+    <Property Name="Destination" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GoDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="ApplicationDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="UGUID" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EditDate" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfo" EntityType="DataModel.UserInfo" />
+          <EntitySet Name="CarsInfo" EntityType="DataModel.CarsInfo" />
+          <EntitySet Name="ApplicationInfo" EntityType="DataModel.ApplicationInfo" />
+          <EntitySet Name="NewsInfo" EntityType="DataModel.NewsInfo" />
+        </EntityContainer>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Pwd" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="DateTime" Name="LoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="AddDate" Nullable="false" />
+          <Property Type="DateTime" Name="OfficeDate" Nullable="true" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Mileage" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CarsInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LicencePlate" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Seating" Nullable="false" />
+          <Property Type="String" Name="CarModel" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CarColor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CarBrand" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="OilWear" Nullable="false" />
+          <Property Type="Int32" Name="OilType" Nullable="false" />
+          <Property Type="Int32" Name="Mileage" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AppUGUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="AppLogin" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AppName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DriverUGUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="DriverLogin" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DriverName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LeadUGUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="LeadLogin" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LeadName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CGUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="LicencePlate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Origin" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Distance" Nullable="false" />
+          <Property Type="String" Name="Destination" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="GoDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="DateTime" Name="ApplicationDate" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="UGUID" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="EditDate" Nullable="false" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.UserInfo)">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="OfficeDate" ColumnName="OfficeDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarsInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.CarsInfo)">
+        <MappingFragment StoreEntitySet="CarsInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
+          <ScalarProperty Name="Seating" ColumnName="Seating" />
+          <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+          <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+          <ScalarProperty Name="OilWear" ColumnName="OilWear" />
+          <ScalarProperty Name="OilType" ColumnName="OilType" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ApplicationInfo)">
+        <MappingFragment StoreEntitySet="ApplicationInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="AppUGUID" ColumnName="AppUGUID" />
+          <ScalarProperty Name="AppLogin" ColumnName="AppLogin" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="DriverUGUID" ColumnName="DriverUGUID" />
+          <ScalarProperty Name="DriverLogin" ColumnName="DriverLogin" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="LeadUGUID" ColumnName="LeadUGUID" />
+          <ScalarProperty Name="LeadLogin" ColumnName="LeadLogin" />
+          <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+          <ScalarProperty Name="CGUID" ColumnName="CGUID" />
+          <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="GoDate" ColumnName="GoDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.NewsInfo)">
+        <MappingFragment StoreEntitySet="NewsInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="UGUID" ColumnName="UGUID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

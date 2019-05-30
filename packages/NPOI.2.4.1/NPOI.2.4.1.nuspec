@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NPOI</id>
+    <version>2.4.1</version>
+    <title>NPOI</title>
+    <authors>NPOI Contributors</authors>
+    <owners>NPOI Contributors</owners>
+    <licenseUrl>https://www.nuget.org/packages/NPOI/2.4.1/license</licenseUrl>
+    <projectUrl>https://github.com/tonyqus/npoi</projectUrl>
+    <iconUrl>https://github.com/tonyqus/npoi/raw/master/logo/60_60.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Neuzilla is the studio behind NPOI. 
+	
+Neuzilla provides commercial software customization and consulting service. For details, please contact support@neuzilla.com</description>
+    <summary>This project is the .NET port of POI from Apache Foundation. NPOI can read and write xls (Excel 97-2003), xlsx(Excel 2007+) and docx(Word 2007+)</summary>
+    <releaseNotes>New features
+Add Excel function support for AVERAGEIF and AVERAGEIFS
+CopySheet support in XSSFSheet
+Implemented OMath formula edit/creation in XWPF
+
+BUG Fixes
+Fix SharpZipLib 0.86 dependency issue in .NET Framework 4 and .NET 4.5
+Fix FontHeight property issue in XSSF and HSSF</releaseNotes>
+    <copyright>Neuzilla Inc.</copyright>
+    <tags>npoi xlsx xls Excel Word docx</tags>
+    <dependencies>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="4.5.0" />
+        <dependency id="System.Drawing.Common" version="4.5.0" />
+        <dependency id="SharpZipLib" version="1.0.0" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="SharpZipLib" version="1.0.0" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="SharpZipLib" version="[0.86.0]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

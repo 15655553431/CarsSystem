@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5817e1c2486145d4a8a404639299cd64" Name="关系图1" ZoomLevel="97" >
+        <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.CarsInfo" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.ApplicationInfo" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.NewsInfo" Width="1.5" PointX="6" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

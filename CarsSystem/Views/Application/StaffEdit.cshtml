@@ -1,0 +1,179 @@
+﻿@model Model.ApplicationInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="~/lib/html5shiv.js"></script>
+<script type="text/javascript" src="~/lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/lib/layui/css/layui.css"  />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>申请用车</title>
+</head>
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" id="form-admin-add">
+	    @Html.HiddenFor(m=>m.ID)
+        @Html.HiddenFor(m=>m.GUID)
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>出发地点：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="@Model.Origin" placeholder="出发地点" id="Origin" name="Origin">
+		</div>
+	</div>
+    <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>目的地点：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="@Model.Destination" placeholder="目的地点" id="Destination" name="Destination">
+		</div>
+	</div>
+    <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>行驶距离：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="@Model.Distance" placeholder="预计将要行驶的距离（KM）" id="Distance" name="Distance">
+		</div>
+	</div>
+
+    <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>结束时间：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="@Model.EndDate.ToString("yyyy-MM-dd HH:mm:ss")" placeholder="预计还车时间" id="EndDate" name="EndDate">
+		</div>
+	</div>
+
+    <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用车理由：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<textarea cols="" rows="" class="textarea" id="Reason" name="Reason" placeholder="申请公务用车的用途，以及需要的座位数。" dragonfly="true" onKeyUp="$.Huitextarealength(this,200)">@Model.Reason</textarea>
+		</div>
+	</div>
+
+    
+
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+		</div>
+	</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去--> 
+<script type="text/javascript" src="~/Content/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="~/Content/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="~/Content/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="~/Content/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="~/Content/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="~/Content/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="~/Content/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="~/Content/lib/layui/layui.js"></script>
+<script type="text/javascript">
+
+
+
+    $(function () {
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            var now = new Date();
+
+            //日期时间选择器
+            laydate.render({
+                elem: '#EndDate'
+              , type: 'datetime'
+                , min: 0 //7天后
+                , max: 7 //7天后
+                , value: now
+            });
+        });
+
+
+
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-admin-add").validate({
+            rules: {
+
+                Origin: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 20
+                },
+                Destination: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 10
+                },
+                Distance: {
+                    required: true,
+                    number: true,
+                    minlength: 1,
+                    maxlength: 4
+                },
+                EndDate: {
+                    required: true,
+
+                },
+                Reason: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 200
+                },
+
+            },
+            onkeyup: false,
+            focusCleanup: true,
+            success: "valid",
+            submitHandler: function (form) {
+                $(form).ajaxSubmit({
+                    type: 'post',
+                    url: "/Application/StaffEdit",
+                    success: function (data) {
+                        if (data == "ok") {
+                            layer.msg('修改成功!', { icon: 1, time: 1000 });
+                            setTimeout(function () {  //使用  setTimeout（）方法设定定时2000毫秒
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.location.reload(); // 父页面刷新
+                                parent.$('.btn-refresh').click();
+                                parent.layer.close(index);
+                            }, 1000);
+                        }
+                        else {
+                            layer.msg('修改失败!', { icon: 2, time: 1000 });
+                        }
+                    },
+                    error: function (XmlHttpRequest, textStatus, errorThrown) {
+                        layer.msg('error!', { icon: 1, time: 1000 });
+                    }
+                });
+
+            }
+        });
+    });
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@model Model.NewsInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新闻展示</title>
+</head>
+<body>
+  <div>
+        <div style="margin-left:25px;">
+            <h1 style="color:#333">@Model.Title</h1>
+            <h4 style="color:#666">发布人：@Model.Name (编辑时间:@Model.EditDate)</h4>
+        </div>
+
+        <p></p>
+
+        <div style="border:2px solid #0B96CD;font-weight:bold;border-radius:6px;">
+            @Html.Newsinfodiv(Model.Content)
+        </div>
+
+    </div>
+     
+</body>
+</html>

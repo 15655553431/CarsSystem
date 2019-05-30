@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="~/Content/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>时间轴折线图</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 数据统计 <span class="c-gray en">&gt;</span> 车辆数据 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div id="container" style="min-width:700px;height:400px"></div>
+
+    <table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr>
+				<th scope="col" colspan="13">司机出勤次数统计
+                    
+				</th>
+                
+			</tr>
+			<tr class="text-c">
+                <th width="100">姓名</th>
+                <th width="100">1月</th>
+                <th width="100">2月</th>
+				<th width="100">3月</th>
+				<th width="100">4月</th>
+                <th width="100">5月</th>
+                <th width="100">6月</th>
+				<th width="100">7月</th>
+				<th width="100">8月</th>
+                <th width="100">9月</th>
+                <th width="100">10月</th>
+				<th width="100">11月</th>
+				<th width="100">12月</th>
+			</tr>
+		</thead>
+		<tbody>
+            
+            <tr>
+                <td>苏三二</td>
+                <td>15</td>
+                <td>19</td>
+                <td>18</td>
+                <td>22</td>
+                <td>30</td>
+                <td>26</td>
+                <td>25</td>
+                <td>21</td>
+                <td>24</td>
+                <td>24</td>
+                <td>26</td>
+                <td>19</td>
+            </tr>
+            
+            <tr>
+                <td>测试司机</td>
+                <td>24</td>
+                <td>24</td>
+                <td>26</td>
+                <td>19</td>
+                <td>15</td>
+                <td>19</td>
+                <td>18</td>
+                <td>22</td>
+                <td>30</td>
+                <td>26</td>
+                <td>25</td>
+                <td>21</td>
+            </tr>
+            
+            <tr>
+                <td>苏司机</td>
+                <td>22</td>
+                <td>30</td>
+                <td>24</td>
+                <td>26</td>
+                <td>19</td>
+                <td>26</td>
+                <td>25</td>
+                <td>21</td>
+                <td>24</td>
+                <td>15</td>
+                <td>19</td>
+                <td>18</td>
+            </tr>
+            
+            <tr>
+                <td>王司机</td>
+                <td>24</td>
+                <td>24</td>
+                <td>26</td>
+                <td>30</td>
+                <td>26</td>
+                <td>25</td>
+                <td>15</td>
+                <td>19</td>
+                <td>18</td>
+                <td>22</td>
+                <td>21</td>
+                <td>19</td>
+            </tr>
+
+		</tbody>
+	</table>
+
+
+</div>
+
+
+
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="~/Content/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="~/Content/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="~/Content/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="~/Content/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="~/Content/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="~/Content/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+<script type="text/javascript">
+    $(function () {
+        Highcharts.chart('container', {
+            title: {
+                text: '司机出勤次数统计',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '按月份统计',
+                x: -20
+            },
+            xAxis: {
+                categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: {
+                title: {
+                    text: '次数'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '次'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '苏三二',
+                data: [15, 19, 18, 22, 30, 26, 25, 21, 24,24, 26, 19]
+            }, {
+                name: '测试司机',
+                data: [24, 24, 26, 19,15, 19, 18, 22, 30, 26, 25, 21]
+            }, {
+                name: '苏司机',
+                data: [22, 30, 24, 26, 19, 26, 25, 21, 24, 15, 19, 18 ]
+            }, {
+                name: '王司机',
+                data: [24, 24, 26, 30, 26, 25, 15, 19, 18, 22, 21, 19]
+            }]
+        });
+    });
+</script>
+</body>
+</html>
